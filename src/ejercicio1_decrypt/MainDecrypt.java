@@ -30,7 +30,7 @@ public class MainDecrypt {
         System.out.println("Introduce el nombre del archivo resultante de la desencriptación (sin extensión): ");
         outputFileName = sc.nextLine();
         outputFile = new File(outputFileName + ".decript");
-        System.out.println("Introduce el nombre de la clave a usar para encriptar (sin extensión): ");
+        System.out.println("Introduce el nombre de la clave a usar para desencriptar (sin extensión): ");
         keyFileName = sc.nextLine();
         keyFileName = keyFileName + ".raw";
 
@@ -51,7 +51,7 @@ public class MainDecrypt {
 
         DecryptManager decryptingManager = new DecryptManager();
         try {
-            decryptingManager.encryptFile(algorithm, clave, inputFile, outputFile);
+            decryptingManager.decryptFile(algorithm, clave, inputFile, outputFile);
         } catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | IOException | IllegalBlockSizeException | BadPaddingException e) {
             e.printStackTrace();
         }

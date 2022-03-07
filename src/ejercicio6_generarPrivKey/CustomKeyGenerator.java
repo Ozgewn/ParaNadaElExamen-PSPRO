@@ -32,15 +32,9 @@ public class CustomKeyGenerator {
         SecureRandom srand = SecureRandom.getInstance(RAND_NUM_GENERATOR_ALGORITHM);
 
         switch (algorithm) {
-            case "AES" -> {
-                generateAESKey(file_name, srand);
-            }
-            case "DESede" -> {
-                generateDESedeKey(file_name, srand);
-            }
-            case "DES" -> {
-                generateDESKey(file_name, srand);
-            }
+            case "AES" -> generateAESKey(file_name, srand);
+            case "DESede" -> generateDESedeKey(file_name, srand);
+            case "DES" -> generateDESKey(file_name, srand);
         }
     }
 
