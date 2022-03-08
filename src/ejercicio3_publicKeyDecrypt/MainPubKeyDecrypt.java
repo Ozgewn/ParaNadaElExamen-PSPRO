@@ -19,7 +19,7 @@ public class MainPubKeyDecrypt {
         outputFileName = sc.nextLine();
         outputFile = new File(outputFileName + ".decript");
         System.out.println("Introduce el nombre de la clave a usar para desencriptar (sin extensión): ");
-        keyFileName = sc.nextLine() + ".raw";
+        keyFileName = sc.nextLine();
 
         try (FileInputStream fisClave = new FileInputStream(keyFileName)) {
             valorClave = fisClave.readAllBytes();

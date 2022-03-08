@@ -20,8 +20,8 @@ public class MainPubKeyEncrypt {
         System.out.println("Introduce el nombre del archivo resultante de la encriptacion (sin extensión): ");
         outputFileName = sc.nextLine();
         outputFile = new File(outputFileName + ".encrypt");
-        System.out.println("Introduce el nombre de la clave a usar para encriptar (sin extensión): ");
-        keyFileName = sc.nextLine() + ".raw";
+        System.out.println("Introduce el nombre de la clave a usar para encriptar");
+        keyFileName = sc.nextLine() ;
 
         try (FileInputStream fisClave = new FileInputStream(keyFileName)) {
             valorClave = fisClave.readAllBytes();
