@@ -15,6 +15,7 @@ import javax.crypto.Cipher;
 
 public class CryptographyUtils {
 
+    private static final int KEY_SIZE =1024;
     private static final String ALGORITHM = "RSA";
 
     public static byte[] encrypt(byte[] publicKey, byte[] inputData)
@@ -45,25 +46,24 @@ public class CryptographyUtils {
             throws NoSuchAlgorithmException, NoSuchProviderException {
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
         SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
-        // 512 is keysize
-        keyGen.initialize(512, random);
+        keyGen.initialize(KEY_SIZE, random);
 
         return keyGen.generateKeyPair();
     }
 
-    public static void main(String[] args) throws Exception {
-
-        KeyPair generateKeyPair = generateKeyPair();
-
-        byte[] publicKey = generateKeyPair.getPublic().getEncoded();
-        byte[] privateKey = generateKeyPair.getPrivate().getEncoded();
-
-        byte[] encryptedData = encrypt(publicKey,
-                "hi this is Visruth here".getBytes());
-
-        byte[] decryptedData = decrypt(privateKey, encryptedData);
-
-        System.out.println(new String(decryptedData));
-
-    }
+//    public static void main(String[] args) throws Exception {
+//
+//        KeyPair generateKeyPair = generateKeyPair();
+//
+//        byte[] publicKey = generateKeyPair.getPublic().getEncoded();
+//        byte[] privateKey = generateKeyPair.getPrivate().getEncoded();
+//
+//        byte[] encryptedData = encrypt(publicKey,
+//                "hi this is Visruth here".getBytes());
+//
+//        byte[] decryptedData = decrypt(privateKey, encryptedData);
+//
+//        System.out.println(new String(decryptedData));
+//
+//    }
 }
